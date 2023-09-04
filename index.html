@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" id="body">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Timer App</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<script>
+        function start() {
+            var yellow = document.getElementById("yellow").value;
+            var red = document.getElementById("red").value;
+            if (!yellow || isNaN(yellow)){
+                document.getElementById('err').innerHTML = 'Yellow is an not a number'
+            } else if (!red || isNaN(red)){
+                document.getElementById('err').innerHTML = 'Red is an not a number'
+            } else {
+                document.getElementById('err').innerHTML = ''
+                document.getElementById("body").style.background = "green";
+                setTimeout(() => {
+                    document.getElementById("body").style.background = "yellow";
+                    setTimeout(() => {
+                        document.getElementById("body").style.background = "red";
+                    }, red * 1000)
+                }, yellow * 1000)
+            }
+        }
+        function reset() {
+            document.getElementById("body").style.background = "white";
+            document.getElementById("yellow").value = ""
+            document.getElementById("red").value = ""
+        }
+    </script>
+    <p>Enter the time in seconds to change from green to yellow and then from yellow to green</p>
+    <input type="text" placeholder="Green to Yellow Delay" id="yellow"/>
+    <input type="text" placeholder="Yellow to Red Delay" id="red"/>
+    <button onClick="start()">START</button>
+    <button onClick="reset()">RESET</button>
+    <p id="err"></p>
+  </body>
+</html>
