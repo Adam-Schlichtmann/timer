@@ -1,1 +1,1 @@
-Simple HTML timer application to project onto a screen during a test or other timed activity
+Simple HTML timer application to display over a projector during a test or other timed activity
